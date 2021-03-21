@@ -1,0 +1,11 @@
+---
+- name: "reload systemd"
+  systemd:
+    daemon_reload: true
+  when: ansible_service_mgr == "systemd"
+
+- name: "restart tarpit"
+  service:
+    name: ssh-tarpit
+    state: restarted
+  when: ansible_service_mgr == "systemd"

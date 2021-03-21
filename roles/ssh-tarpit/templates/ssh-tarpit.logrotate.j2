@@ -1,0 +1,11 @@
+"{{ tarpit_log }}" {
+  rotate 12
+  daily
+  compress
+  missingok
+  notifempty
+  delaycompress
+  postrotate
+     systemctl restart ssh-tarpit.service  1>/dev/null
+  endscript
+}

@@ -1,0 +1,41 @@
+---
+- name: tarpit | install prerequisities
+  apt:
+    state: latest
+    pkg:
+    - python3-pip
+    - logrotate
+
+- name: tarpit | install ssh-tarpit via pip
+  pip:
+    name: ssh-tarpit
+    state: latest
+
+- name: tarpit | deploy logrotate config
+  template:
+    src: "ssh-tarpit.logrotate.j2"
+    dest: "/etc/logrotate.d/ssh-tarpit"
+    owner: root
+    group: root
+    mode: 0755
+
+- name: tarpit | deploy systemd-config
+  template:
+    src: "ssh-tarpit.service.j2"
+    dest: "/etc/systemd/system/ssh-tarpit.service"
+    owner: root
+    group: root
+    mode: 0755
+  notify:
+    - "reload systemd"
+#    - "restart tarpit"
+
+- name: tarpit | flush handlers
+  meta: flush_handlers
+
+
+- name: tarpit | Make sure tarpit is running
+  systemd:
+    state: started
+    enabled: yes
+    name: "ssh-tarpit"

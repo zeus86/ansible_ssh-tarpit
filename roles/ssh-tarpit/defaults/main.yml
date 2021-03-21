@@ -1,0 +1,7 @@
+---
+tarpit_port: 2200
+tarpit_ip: "{{ ansible_all_ipv4_addresses | first }}"
+tarpit_log: "/var/log/ssh-tarpit.log"
+tarpit_interval: "2"
+tarpit_loglevel: "info"
+tarpit_daemon_opts: " -i {{ tarpit_interval }} -v {{ tarpit_loglevel }} -a {{ tarpit_ip }} -p {{ tarpit_port }} -f {{ tarpit_log }}"

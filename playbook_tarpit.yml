@@ -1,0 +1,5 @@
+---
+- hosts: tarpit
+  become: yes
+  roles:
+    - ssh-tarpit

@@ -1,0 +1,15 @@
+[Unit]
+Description=ssh-tarpit honeypot service
+After=network.service auditd.service
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+ExecStart=/usr/local/bin/ssh-tarpit {{ tarpit_daemon_opts }}
+#ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target
+Alias=ssh-tarpit
