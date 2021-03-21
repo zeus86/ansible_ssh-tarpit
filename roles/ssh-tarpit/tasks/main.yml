@@ -18,6 +18,8 @@
     owner: root
     group: root
     mode: 0755
+  notify:
+    - "reload logrotate" 
 
 - name: tarpit | deploy systemd-config
   template:
