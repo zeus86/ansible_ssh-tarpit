@@ -8,7 +8,7 @@ Most things are self explanatory, adjust the daemon-opts according to your needs
 `tarpit_ip` IP to bind to  
 `tarpit_log` logfile location.  
 `tarpit_interval`	Interval in seconds between every chunk of information to the client  
-`tarpit_loglevel` info contains the connection attemtps (debug,info,warn,crit,fatal)  
+`tarpit_loglevel` info contains the connection attemtps (debug,info,warn,error,fatal)  
 `tarpit_daemon_opts` crafted startup command  
 
 ## Limitations:
