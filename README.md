@@ -1,5 +1,5 @@
 # ansible_ssh-tarpit
-Simple Ansible Playbook to deploy a ssh-tarpit (https://github.com/Snawoot/ssh-tarpit)
+Simple Ansible role and sample playbook to deploy a ssh-tarpit-node (https://github.com/Snawoot/ssh-tarpit)
 
 Most things are self explanatory, adjust the daemon-opts according to your needs in `roles/ssh-tarpit/default/main.yml` and the host in the example playbook. 
 
